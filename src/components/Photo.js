@@ -31,7 +31,7 @@ export default function Photo () {
         <DateStyle>Date: {photoImg.date} </DateStyle>
         <form onSubmit ={evt => {evt.preventDefault()}}>
         <input onChange={e => setStartDate(e.target.value)} type = "text" />
-        <Button  color="warning" type="submit">Submit</Button>
+        {/* <Button  color="warning" type="submit">Submit</Button> */}
         </form> 
         <PhotoCard arrayInfo = {photoImg}/>
     </div>
