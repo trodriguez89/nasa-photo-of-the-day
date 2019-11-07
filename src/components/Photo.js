@@ -1,20 +1,18 @@
 import React, {useState, useEffect} from "react";
 import PhotoCard from "./PhotoCard";
-import DatePicker from "react-datepicker";
-import moment from "moment";
-import "react-datepicker/dist/react-datepicker.css";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 
 export default function Photo () {
     const [photoImg, setPhotoImg] = useState([])
-    const [startDate, setStartDate] = useState("2019-11-06");
+    const [startDate, setStartDate] = useState("");
 
     const img_temp = {
         width: "35%"
     }
 
-
+    function handleSubmit(event){
+        event.preventDefault();
+    }
     useEffect(() => {
         axios.get(`https://api.nasa.gov/planetary/apod?date=${startDate}&api_key=1ppfJ03viLPpZ8HNDhAI8P2zB7CwW33GpjxoCx8U`)
         .then(response => {
@@ -28,7 +26,10 @@ export default function Photo () {
 
     return (
     <div>
-        <h2>Date: {photoImg.date} Pick A Date </h2>
+        <h2>Date: {photoImg.date} <form onSubmit ={handleSubmit}>
+            <input onChange={e => setStartDate(e.target.value)} value ={startDate}/><button type="submit">Submit</button>
+        </form>
+        </h2>
         
         <PhotoCard arrayInfo = {photoImg}/>
         {/* <img style = {img_temp} src = {photoImg.hdrul} alt = "APOD IMG"/> */}
@@ -37,6 +38,3 @@ export default function Photo () {
     );
 }
 
-{/* <button onClick={() => setDate(date - 1)}>View Previous Day's Photo!</button> */}
-
-{/* <DatePicker dateFormat = "yyyy-MM-dd" selected = {startDate} onChange ={() => setStartDate(startDate)}/> */}
