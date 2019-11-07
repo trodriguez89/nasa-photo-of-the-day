@@ -9,7 +9,7 @@ export default function PhotoCard(props) {
     } else
     return (
         <div>
-            <img style ={img_temp} src = {props.arrayInfo.hdurl}/>
+            <img style ={img_temp} src = {props.arrayInfo.hdurl} alt="APOD"/>
             <h1>Title: {props.arrayInfo.title}</h1>
             {/* <h2>Date: {props.arrayInfo.date}</h2> */}
             <p>Explanation: {props.arrayInfo.explanation}</p>
