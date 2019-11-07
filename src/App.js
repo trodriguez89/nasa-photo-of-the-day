@@ -6,17 +6,17 @@ import styled from "styled-components";
 const MainDivStyle = styled.div`
     width: 100%;
     height: 100vh;
-    border: 2px solid black;
     background-image: url("https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1070&q=80") 
 
 `;
 
 const NarrowDivStyle = styled.div`
 text-align: center;
+height: 100vh;
 width: 85%;
 margin: 0 auto;
 background: white;
-height: 100%;
+
 `;
 
 
@@ -32,9 +32,7 @@ function App() {
   
     <MainDivStyle>
       <NarrowDivStyle>
-     
       <TitleStyleH1>Astronomy Picture of the Day!</TitleStyleH1>
-      
       <Photo/>
       </NarrowDivStyle>
     </MainDivStyle>
